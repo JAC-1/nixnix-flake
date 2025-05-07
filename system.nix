@@ -4,7 +4,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    <home-manager/nixos>
   ];
 
   # Bootloader
@@ -14,6 +13,8 @@
 
   networking.hostName = "nixnix";
   networking.networkmanager.enable = true;
+
+  programs.hyprland.enable = true;
 
   # Unfree
   nixpkgs.config.allowUnfree = true;
