@@ -55,6 +55,8 @@
     xdg-desktop-portal-hyprland # System-wide portal functionality
     fcitx5-mozc                # Input method (system-wide)
     fcitx5-configtool          # Input method configuration
+    gh
+    home-manager
   ];
 
   # Fonts

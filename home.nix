@@ -109,9 +109,6 @@
         }
         general {
           border_size = 2
-          border_color = ${colors.overlay0}
-          active_border_color = ${colors.mauve}
-          inactive_border_color = ${colors.overlay1}
           gaps_in = 4
           gaps_out = 8
           layout = dwindle
@@ -123,13 +120,9 @@
             size = 4
             passes = 2
           }
-          drop_shadow = true
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(00000088)
         }
         input {
-          kb_layout = us
+          kb_layout = jp
           follow_mouse = 1
           touchpad {
             natural_scroll = true
@@ -140,7 +133,6 @@
         dwindle {
           pseudotile = true
           preserve_split = true
-          no_gaps_when_only = false
         }
       '';
 
@@ -193,7 +185,7 @@
       autostartConfig = ''
         exec-once = nm-applet --indicator
         exec-once = mako
-        exec-once = waybar
+	exec-once = waybar
         exec-once = hyprpaper
         exec-once = fcitx5
         exec-once = wlsunset -l 35.6895 -L 139.6917
@@ -341,6 +333,158 @@
       };
     };
   };
+
+  programs.waybar.style = ''
+* {
+  border: none;
+  border-radius: 0;
+  font-family:
+    Jetbrains Mono Nerd Font,
+    monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(21, 18, 27, 0);
+  color: #cdd6f4;
+}
+
+tooltip {
+  background: #1e1e2e;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: #313244;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: #a6adc8;
+}
+
+#workspaces button.focused {
+  color: #a6adc8;
+  background: #eba0ac;
+  border-radius: 10px;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background: #11111b;
+  color: #cdd6f4;
+  border-radius: 10px;
+}
+
+#language,
+#custom-updates,
+#custom-caffeine,
+#custom-weather,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#tray,
+#backlight {
+  background: #1e1e2e;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 10px;
+  border: 1px solid #181825;
+}
+
+#tray {
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+#workspaces {
+  background: #1e1e2e;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#custom-caffeine {
+  color: #89dceb;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px;
+  margin-left: 10px;
+}
+
+#custom-language {
+  color: #f38ba8;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#custom-updates {
+  color: #f5c2e7;
+  border-radius: 10px 0px 0px 10px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#window {
+  border-radius: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+#clock {
+  color: #fab387;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 5px;
+  border-right: 0px;
+}
+
+#network {
+  color: #f9e2af;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#pulseaudio {
+  color: #89b4fa;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#pulseaudio.microphone {
+  color: #cba6f7;
+  border-radius: 0px 10px 10px 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-right: 5px;
+}
+
+#battery {
+  color: #a6e3a1;
+  border-radius: 0 10px 10px 0;
+  margin-right: 10px;
+  border-left: 0px;
+}
+
+#custom-weather {
+  border-radius: 0px 10px 10px 0px;
+  border-right: 0px;
+  margin-left: 0px;
+}'';
+
 
   # Hyprpaper configuration
   xdg.configFile."hypr/hyprpaper.conf".text = ''
