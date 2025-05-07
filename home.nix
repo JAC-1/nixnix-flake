@@ -44,7 +44,6 @@
     # Development
     gcc
     sccache
-    rust-bin.stable.latest.default
     docker
   ];
 
