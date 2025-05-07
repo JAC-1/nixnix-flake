@@ -4,6 +4,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    <home-manager/nixos>
   ];
 
   # Bootloader
@@ -13,6 +14,9 @@
 
   networking.hostName = "nixnix";
   networking.networkmanager.enable = true;
+
+  # Unfree
+  nixpkgs.config.allowUnfree = true;
 
   # Time zone
   time.timeZone = "Asia/Tokyo";
@@ -59,7 +63,8 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" "_0xProto" ]; })
+      nerd-fonts._0xproto
+      nerd-fonts.hack
     ];
   };
 
